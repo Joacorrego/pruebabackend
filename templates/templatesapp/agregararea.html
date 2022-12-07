@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body class="container mt-5">
+        <div class="alert alert-info display-1 text-center">REGISTRAR AREA</div>
+
+        <form method = "POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-info" value="REGISTRAR">
+        </form>
+        
+
+        <a href="../areas" class="btn btn-info mt-5">AREAS</a>
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+            integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+            crossorigin="anonymous">
+    </body>
+</html>

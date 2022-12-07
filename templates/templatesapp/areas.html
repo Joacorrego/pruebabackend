@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="{%static "css/table.css" %}">
+    </head>
+    <body class="container mt-5">
+        <div class="alert alert-info display-1 text-center">LISTA DE AREA</div>
+
+        {%if areas %}
+
+        <table class="table table-striped table-inverse table-responsive">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Rut</th>
+                    <th>Cargo</th>
+                    <th>Fono</th>
+                    <th>Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for are in areas %}
+                <tr>
+                    <td scope="row">{{ are.id }}</td>
+                    <td scope="row">{{ are.nombre }}</td>
+                    <td scope="row">{{ are.tamanio }}</td>
+                    <td scope="row">{{ are.ubicacion }}</td>
+                    <td scope="row">{{ are.maxi_person }}</td>
+                    <td scope="row">{{ are.estado }}</td>
+                    <td><a href="/modificararea/{{ are.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></td>
+                    <td><a href="/eliminararea/{{ are.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></td>
+                </td>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+                <strong>no hay areas en la base de datos</strong>
+            </div>
+        {% endif %}
+
+        <a href="../" class="btn btn-danger">REGRESAR AL INICIO </a>
+        <a href="../agregararea" class="btn btn-info float-end">REGISTRO DEL AREA</a>
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+            integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+            crossorigin="anonymous">
+
+</html>
+

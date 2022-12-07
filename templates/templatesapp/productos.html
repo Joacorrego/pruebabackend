@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static "css/table.css" %}">
+</head>
+<body class ="container mt-5">
+    <div class = "alert alert-info display-1 text-center">LISTADO DE PRODUCTOS</div>
+
+    {% if productos %}
+    <table class ="table table-striped table-inverse table-responsive">
+        <thead class = "thead-inverse">
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>marca</th>
+                <th>fecha_expiracion</th>
+                <th>peso</th>
+                <th>area</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.marca}}</td>
+                <td>{{producto.fecha_expiracion}}</td>
+                <td>{{producto.peso}}</td>
+                <td>{{producto.area}}</td>
+                <td><a href="/actualizarProducto/{{ producto.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></td>
+                <td><a href="/eliminarProducto/{{ producto.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+
+    <div class = "alert alert-primary" role ="alert">
+        <strong>No se encuentran productos en el sistema</strong>
+    </div>
+
+    {% endif %}
+
+
+
+    <a href="../" class ="btn btn-danger">VOLVER</a>    
+    <a href="../agregarProductos" class = "btn btn-info float-end">AGREGAR PRODUCTOS</a>
+    <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+            integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+            crossorigin="anonymous">
+
+            
+</body>
+</html>
